@@ -99,7 +99,7 @@ class CreativeAssetDAO(BaseDAO):
     """
     file_buffer = object_get('user', '%s:%s' % (feed_item.get(FieldMap.CREATIVE_ASSET_BUCKET_NAME, None), feed_item.get(FieldMap.CREATIVE_ASSET_FILE_NAME, None)))
     
-    file_mime = mimetypes.guess_type(filename, strict=False)[0]
+    file_mime = mimetypes.guess_type(feed_item.get(FieldMap.CREATIVE_ASSET_FILE_NAME, None), strict=False)[0]
     media = MediaIoBaseUpload(BytesIO(file_buffer), mimetype=file_mime, chunksize=CHUNKSIZE, resumable=True)
 
     result = self._api().insert(
