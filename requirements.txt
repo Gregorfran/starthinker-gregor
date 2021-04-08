@@ -38,6 +38,6 @@ wheel
 gunicorn
 uwsgi
 jsonpickle
-django==2.2.12
+django==2.2.20
 psycopg2-binary
 contextlib2
